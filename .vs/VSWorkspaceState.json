@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.idea",
+    "\\app",
+    "\\app\\resources",
+    "\\app\\resources\\css",
+    "\\app\\resources\\script",
+    "\\app\\resources\\views"
+  ],
+  "SelectedNode": "\\app\\resources\\views\\dinnerPlan.html",
+  "PreviewInSolutionExplorer": false
+}

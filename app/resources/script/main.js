@@ -1,10 +1,10 @@
 var main = function () {
 
     var recipeType = {
-        0: "cocktail",
-        1: "appetizer",
-        2: "main course",
-        3: "dessert",
+        0: {"name": "cocktail", "ingredients": ["Booz","Roofis","Green Stuff"]},
+        1: {"name": "appetizer", "ingredients": ["Some leaves","Some veggies", "I dunno toast","Cheese or whatever"]},
+        2: {"name": "main course", "ingredients": ["A dead animal","its blood", "some potatoes","love","asparagus"]} ,
+        3: {"name": "dessert", "ingredients": ["Dough","Some Sprinkly shit", "sugar","more sugar","cream shaboogy pop"]} ,
     }
 
     function getRecipeItems() {
@@ -13,33 +13,33 @@ var main = function () {
                 "id": "recipe0",
                 "title": "Grasshopper Cocktail",
                 "img": "../images/grasshopper-cocktail.jpg",
-                "ingredients": ["1","2","3"],
+                "ingredients": recipeType[0].ingredients,
                 "instructions":"shaken not stirred",
-                "type" : 0,
+                "type" : recipeType[0].name,
             },
             {
                 "id": "recipe1",
                 "title": "Beef roast with veggies",
                 "img": "../images/beef-roast-with-veggies.JPG",
-                "ingredients": ["1","2","3"],
+                "ingredients": recipeType[2].ingredients,
                 "instructions":"stuff it good",
-                "type" : 2,
+                "type" : recipeType[2].name,
             },
             {
                 "id": "recipe2",
                 "title": "Shrimp-Fried-Rice",
                 "img": "../images/Shrimp-Fried-Rice.jpg",
-                "ingredients": ["1","2","3"],
+                "ingredients": recipeType[1].ingredients,
                 "instructions":"extra MSG",
-                "type" : 2,
+                "type" : recipeType[1].name,
             },
             {
                 "id": "recipe3",
                 "title": "Cupcake from hell",
                 "img": "../images/Cupcake-Idea-pics-200x150.png",
-                "ingredients": ["1","2","3"],
+                "ingredients": recipeType[3].ingredients,
                 "instructions":"death is inevitable",
-                "type" : 3,
+                "type" : recipeType[3].name,
             },
         ]
     }
@@ -51,7 +51,9 @@ var main = function () {
 
         recipeDetailsElement = document.createElement("div");
         recipeDetailsElement.setAttribute("id", recipeItem.id+"_details");
-        recipeDetailsElement.appendChild(createRecipePic(recipeItem));
+
+		recipeDetailsElement.appendChild(createDeleteRecipe(recipeItem));
+		recipeDetailsElement.appendChild(createRecipePic(recipeItem));
         recipeDetailsElement.appendChild(createRecipeTitle(recipeItem));
 
         recipePreperationElement = document.createElement("div");
@@ -61,7 +63,7 @@ var main = function () {
         recipePreperationElement.style.display = 'none';
 
         recipeDetailsElement.appendChild(recipePreperationElement);
-        recipeDetailsElement.appendChild(createDeleteRecipe(recipeItem));
+        
 
         recipeElement.appendChild(createUndoDeleteRecipe(recipeItem));
         recipeElement.appendChild(recipeDetailsElement);
@@ -120,7 +122,7 @@ var main = function () {
         $(recipePic).css('margin-top', '10px');
 
         $(recipePic).click(() => {
-            $('#'+recipeItem.id+"_full_details").toggle();
+            $('#'+recipeItem.id+"_full_details").slideToggle();
         });
 
         return recipePic;
@@ -150,13 +152,14 @@ var main = function () {
 
     }
 
-
+	recipeItems = getRecipeItems();
     var mainContainer = document.getElementsByClassName('mainContainer');
-    getRecipeItems().forEach(recipeItem => {
+    recipeItems.forEach(recipeItem => {
         mainContainer[0].appendChild(createRecipeItem(recipeItem));
     });
 
 
 
 };
+var recipeItems;
 $(document).ready(main);
