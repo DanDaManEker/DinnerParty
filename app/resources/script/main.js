@@ -7,6 +7,14 @@ var main = function () {
         3: {"name": "dessert", "ingredients": ["Dough","Some Sprinkly shit", "sugar","more sugar","cream shaboogy pop"]} ,
     }
 
+    var Merchantprices = {
+
+        ampm:{"ingredientPrice":recipeType[0].ingredients = 20,"sumPrice":recipeType[0] = ingredientPrice * (recipeType[0].ingredients.length)},
+        haCarmel:{},
+        tivTaam:{},
+
+    }
+
     function getRecipeItems() {
         return recipeItems = [
             {
@@ -15,6 +23,7 @@ var main = function () {
                 "img": "../images/grasshopper-cocktail.jpg",
                 "ingredients": recipeType[0].ingredients,
                 "instructions":"shaken not stirred",
+                "price": {"ampmPrice":Merchantprices[0].sumPrice,"haCarmelPrice":Merchantprices[1].sumPrice,"tivTaamPrice":Merchantprices[2].sumPrice},
                 "type" : recipeType[0].name,
             },
             {
@@ -23,6 +32,7 @@ var main = function () {
                 "img": "../images/beef-roast-with-veggies.JPG",
                 "ingredients": recipeType[2].ingredients,
                 "instructions":"stuff it good",
+                "price": 55,
                 "type" : recipeType[2].name,
             },
             {
@@ -31,6 +41,7 @@ var main = function () {
                 "img": "../images/Shrimp-Fried-Rice.jpg",
                 "ingredients": recipeType[1].ingredients,
                 "instructions":"extra MSG",
+                "price": 65,
                 "type" : recipeType[1].name,
             },
             {
@@ -39,6 +50,7 @@ var main = function () {
                 "img": "../images/Cupcake-Idea-pics-200x150.png",
                 "ingredients": recipeType[3].ingredients,
                 "instructions":"death is inevitable",
+                "price": 15,
                 "type" : recipeType[3].name,
             },
         ]
@@ -162,4 +174,5 @@ var main = function () {
 
 };
 var recipeItems;
+var Merchantprices;
 $(document).ready(main);
