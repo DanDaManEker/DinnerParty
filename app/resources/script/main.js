@@ -1,19 +1,57 @@
+function getRecipeItems() {
+    return recipeItems = [
+        {
+            "id": "recipe0",
+            // ...
+            "price": {
+                default: 8,
+                ampm: 10,
+                // -- haCarmel: 12, -- Let's omit this one
+                tivTaam: 15,
+                get: function( merchant ) {
+                    return this[merchant] ? this[merchant] : this.default;
+                }
+            }
+        }
+    ]
+}
+
 var main = function () {
 
     var recipeType = {
-        0: {"name": "cocktail", "ingredients": ["Booz","Roofis","Green Stuff"]},
-        1: {"name": "appetizer", "ingredients": ["Some leaves","Some veggies", "I dunno toast","Cheese or whatever"]},
-        2: {"name": "main course", "ingredients": ["A dead animal","its blood", "some potatoes","love","asparagus"]} ,
-        3: {"name": "dessert", "ingredients": ["Dough","Some Sprinkly shit", "sugar","more sugar","cream shaboogy pop"]} ,
-    }
+        0: {"name": "cocktail",
+            "ingredients": [{"name":"Booz","price":10},
+                            {"name":"Roofis","price":23},
+                            {"name":"Green Stuff","price":8}]},
+
+        1: {"name": "appetizer",
+            "ingredients": [{"name":"Some leaves","price":7},
+                            {"name":"Some veggies","price":17},
+                            {"name":"I dunno toast","price":10},
+                            {"name":"Cheese or whatever","price":17}]},
+
+        2: {"name": "main course",
+            "ingredients": [{"name":"A dead animal","price":35},
+                            {"name":"Its blood","price":5},
+                            {"name":"some potatoes","price":10},
+                            {"name":"asparagus","price":20},
+                            {"name":"love","price":0}]},
+
+        3: {"name": "dessert",
+             "ingredients": [{"name":"Dough","price":9},
+                             {"name":"Some Sprinkly shit","price":18},
+                             {"name":"sugar","price":10},
+                             {"name":"more sugar","price":10},
+                             {"name":"cream shaboogy pop","price":13}]}
+    };
 
     var Merchantprices = {
 
-        ampm:{"ingredientPrice":recipeType[0].ingredients = 20,"sumPrice":recipeType[0] = ingredientPrice * (recipeType[0].ingredients.length)},
+        ampm:{},
         haCarmel:{},
-        tivTaam:{},
+        tivTaam:{}
 
-    }
+    };
 
     function getRecipeItems() {
         return recipeItems = [
