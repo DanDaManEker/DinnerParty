@@ -16,6 +16,42 @@ function getRecipeItems() {
     ]
 }
 
+function getMerchantprices() {
+    return Merchantprices = [
+
+        {
+            "Booz": {
+                ampm: 10,
+                haCarmel: 23,
+                tivTaam: 35,
+                get: function (ingredient) {
+                    return this[ingredient] ? this[ingredient] : 0;
+                }
+            }
+        },
+        {
+            "Roofis": {
+                ampm: 10,
+                haCarmel: 23,
+                tivTaam: 35,
+                get: function (ingredient) {
+                    return this[ingredient] ? this[ingredient] : 0;
+                }
+            }
+        },
+        {
+            "Green Stuff": {
+                ampm: 10,
+                haCarmel: 23,
+                tivTaam: 35,
+                get: function (ingredient) {
+                    return this[ingredient] ? this[ingredient] : 0;
+                }
+            }
+        }
+    ];
+}
+
 var main = function () {
 
     var recipeType = {
@@ -38,20 +74,37 @@ var main = function () {
                             {"name":"love","price":0}]},
 
         3: {"name": "dessert",
-             "ingredients": [{"name":"Dough","price":9},
-                             {"name":"Some Sprinkly shit","price":18},
-                             {"name":"sugar","price":10},
-                             {"name":"more sugar","price":10},
-                             {"name":"cream shaboogy pop","price":13}]}
+            "ingredients": [{"name":"Dough","price":9},
+                            {"name":"Some Sprinkly shit","price":18},
+                            {"name":"sugar","price":10},
+                            {"name":"more sugar","price":10},
+                            {"name":"cream shaboogy pop","price":13}]}
     };
 
-    var Merchantprices = {
+    /*
 
-        ampm:{},
-        haCarmel:{},
-        tivTaam:{}
+    function getRecipeItems() {
+    return recipeItems = [
+        {
+            "id": "recipe0",
+            // ...
+            "price": {
+                default: 8,
+                ampm: 10,
+                // -- haCarmel: 12, -- Let's omit this one
+                tivTaam: 15,
+                get: function( merchant ) {
+                    return this[merchant] ? this[merchant] : this.default;
+                }
+            }
+        }
+    ]
+}
 
-    };
+     */
+
+
+
 
     function getRecipeItems() {
         return recipeItems = [
@@ -61,7 +114,7 @@ var main = function () {
                 "img": "../images/grasshopper-cocktail.jpg",
                 "ingredients": recipeType[0].ingredients,
                 "instructions":"shaken not stirred",
-                "price": {"ampmPrice":Merchantprices[0].sumPrice,"haCarmelPrice":Merchantprices[1].sumPrice,"tivTaamPrice":Merchantprices[2].sumPrice},
+                // "price": {"ampmPrice":Merchantprices[0].sumPrice,"haCarmelPrice":Merchantprices[1].sumPrice,"tivTaamPrice":Merchantprices[2].sumPrice},
                 "type" : recipeType[0].name,
             },
             {
@@ -102,8 +155,8 @@ var main = function () {
         recipeDetailsElement = document.createElement("div");
         recipeDetailsElement.setAttribute("id", recipeItem.id+"_details");
 
-		recipeDetailsElement.appendChild(createDeleteRecipe(recipeItem));
-		recipeDetailsElement.appendChild(createRecipePic(recipeItem));
+        recipeDetailsElement.appendChild(createDeleteRecipe(recipeItem));
+        recipeDetailsElement.appendChild(createRecipePic(recipeItem));
         recipeDetailsElement.appendChild(createRecipeTitle(recipeItem));
 
         recipePreperationElement = document.createElement("div");
@@ -113,7 +166,7 @@ var main = function () {
         recipePreperationElement.style.display = 'none';
 
         recipeDetailsElement.appendChild(recipePreperationElement);
-        
+
 
         recipeElement.appendChild(createUndoDeleteRecipe(recipeItem));
         recipeElement.appendChild(recipeDetailsElement);
@@ -129,7 +182,7 @@ var main = function () {
         $(undoButton).hide();
         $(undoButton).click(() => {
             onItemDeleteUndo(recipeItem);
-        });
+    });
         return undoButton;
     }
     function createDeleteRecipe(recipeItem) {
@@ -138,7 +191,7 @@ var main = function () {
 
         $(deleteButton).click(() => {
             onItemDelete(recipeItem);
-        });
+    });
 
         return deleteButton;
     }
@@ -173,7 +226,7 @@ var main = function () {
 
         $(recipePic).click(() => {
             $('#'+recipeItem.id+"_full_details").slideToggle();
-        });
+    });
 
         return recipePic;
     }
@@ -185,28 +238,28 @@ var main = function () {
 
         recipeItem.ingredients.forEach(ingredient => {
             var li = document.createElement("li");
-            li.className = "ingredients";
-            li.setAttribute("type", "checkbox");
+        li.className = "ingredients";
+        li.setAttribute("type", "checkbox");
 
-            var checkbox = document.createElement("input");
-            checkbox.setAttribute("type", "checkbox");
-            li.appendChild(checkbox);
+        var checkbox = document.createElement("input");
+        checkbox.setAttribute("type", "checkbox");
+        li.appendChild(checkbox);
 
-            var ingredientElement = document.createElement("a");
-            ingredientElement.innerHTML = ingredient;
-            li.appendChild(ingredientElement);
+        var ingredientElement = document.createElement("a");
+        ingredientElement.innerHTML = ingredient;
+        li.appendChild(ingredientElement);
 
-            ingredients.appendChild(li);
-        })
+        ingredients.appendChild(li);
+    })
         return ingredients;
 
     }
 
-	recipeItems = getRecipeItems();
+    recipeItems = getRecipeItems();
     var mainContainer = document.getElementsByClassName('mainContainer');
     recipeItems.forEach(recipeItem => {
         mainContainer[0].appendChild(createRecipeItem(recipeItem));
-    });
+});
 
 
 
