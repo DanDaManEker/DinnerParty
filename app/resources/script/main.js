@@ -56,7 +56,7 @@ var main = function () {
 
     var recipeType = {
         0: {"name": "cocktail",
-            "ingredients": [{"name":"Booz","price":10},
+            "ingredients": [{"name":"Booz","price":10},//shouldn't this be merchantPrices.Booz?//
                             {"name":"Roofis","price":23},
                             {"name":"Green Stuff","price":8}]},
 
@@ -80,32 +80,6 @@ var main = function () {
                             {"name":"more sugar","price":10},
                             {"name":"cream shaboogy pop","price":13}]}
     };
-
-    /*
-
-    function getRecipeItems() {
-    return recipeItems = [
-        {
-            "id": "recipe0",
-            // ...
-            "price": {
-                default: 8,
-                ampm: 10,
-                // -- haCarmel: 12, -- Let's omit this one
-                tivTaam: 15,
-                get: function( merchant ) {
-                    return this[merchant] ? this[merchant] : this.default;
-                }
-            }
-        }
-    ]
-}
-
-     */
-
-
-
-
     function getRecipeItems() {
         return recipeItems = [
             {
@@ -114,7 +88,7 @@ var main = function () {
                 "img": "../images/grasshopper-cocktail.jpg",
                 "ingredients": recipeType[0].ingredients,
                 "instructions":"shaken not stirred",
-                // "price": {"ampmPrice":Merchantprices[0].sumPrice,"haCarmelPrice":Merchantprices[1].sumPrice,"tivTaamPrice":Merchantprices[2].sumPrice},
+                "price": 45, //shouldn't this be recipeType[0,1,2].sumprice somehow//
                 "type" : recipeType[0].name,
             },
             {
