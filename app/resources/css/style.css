@@ -51,8 +51,8 @@
 /*}*/
 span.fa.fa-times-circle {
     position: relative;
-    top: 42px;
-    left: 2px;
+    bottom: 125px;
+    left: 27px;
 }
 .fa-times-circle:before {
     content: "\f057";

@@ -85,7 +85,7 @@ var main = function () {
             {
                 "id": "recipe0",
                 "title": "Grasshopper Cocktail",
-                "img": "../images/grasshopper-cocktail.jpg",
+                "img": "../images/recipeimages/grasshopper-cocktail.jpg",
                 "ingredients": recipeType[0].ingredients,
                 "instructions":"shaken not stirred",
                 "price": 45, //shouldn't this be recipeType[0,1,2].sumprice somehow//
@@ -94,7 +94,7 @@ var main = function () {
             {
                 "id": "recipe1",
                 "title": "Beef roast with veggies",
-                "img": "../images/beef-roast-with-veggies.JPG",
+                "img": "../images/recipeimages/beef-roast-with-veggies.JPG",
                 "ingredients": recipeType[2].ingredients,
                 "instructions":"stuff it good",
                 "price": 55,
@@ -103,7 +103,7 @@ var main = function () {
             {
                 "id": "recipe2",
                 "title": "Shrimp-Fried-Rice",
-                "img": "../images/Shrimp-Fried-Rice.jpg",
+                "img": "../images/recipeimages/Shrimp-Fried-Rice.jpg",
                 "ingredients": recipeType[1].ingredients,
                 "instructions":"extra MSG",
                 "price": 65,
@@ -112,7 +112,7 @@ var main = function () {
             {
                 "id": "recipe3",
                 "title": "Cupcake from hell",
-                "img": "../images/Cupcake-Idea-pics-200x150.png",
+                "img": "../images/recipeimages/Cupcake-Idea-pics-200x150.jpg",
                 "ingredients": recipeType[3].ingredients,
                 "instructions":"death is inevitable",
                 "price": 15,
